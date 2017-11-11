@@ -12,9 +12,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 | ![Paula Junqueira Bastos]|
 |:---------------------:|
-|  [Paula Junqueira Bastos](https://bitbucket.org/paulajbastos/)   |
+|  [Paula Junqueira Bastos](https://github.com/paulajbastos/)   |
 
-See also the list of [contributors](https://bitbucket.org/paulajbastos/webpack-es6-sass-boilerplate/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/paulajbastos/webpack-es6-sass-boilerplate/contributors) who participated in this project.
 
 ## License
 
