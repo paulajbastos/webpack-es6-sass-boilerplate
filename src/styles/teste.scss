@@ -3,3 +3,27 @@ body {
   color: white;
 
 }
+
+
+.teste {
+  width: 200px;
+  height: 200px;
+  display: table;
+  background: white;
+
+  .testeb { 
+    width: 50px;
+    height: 100px;
+    background: red;
+    display: table-cell;
+
+    vertical-align: middle;
+    
+    //display: flex;
+  
+  }
+  @media screen and (max-width:600px) {
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+  }
+}
