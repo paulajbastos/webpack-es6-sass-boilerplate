@@ -1,0 +1,54 @@
+$squarew: 15px;
+$squareh: 15px;
+$squaremargin: 5px;
+$loaderw: $squarew * 3 + $squaremargin *2;
+$loaderh: $squareh * 3 + $squaremargin *2;
+$delay: 0ms;
+$animation-speed: 700ms;
+$transitionType: cubic-bezier(0,0,0.1,1.0);
+
+@mixin animation($delay) {
+  animation: fx $animation-speed $transitionType infinite $delay;
+}
+
+@keyframes fx {
+  50% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes fx {
+  50% {
+    transform: scale(1);
+  }
+}
+
+@-moz-keyframes fx {
+  50% {
+    transform: scale(1);
+  }
+}
+
+.rsv-loader-square {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: - $loaderh / 2;
+  .square {
+    background: #cccccc;
+    width: $squarew;
+    height: $squareh;
+    float: left;
+    margin-right: $squaremargin;
+    margin-top: $squaremargin;
+    transform: scale(0.8);
+    @include animation($delay);
+    &:nth-child(2) {
+      @include animation($animation-speed * 0.2);
+    }
+    &:nth-child(3) {
+      @include animation($animation-speed * 0.3);
+    }
+  }
+}

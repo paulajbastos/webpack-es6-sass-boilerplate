@@ -1,5 +1,4 @@
-import './styles/main.scss';
-
+import '../styles/main.scss';
 
 import _ from 'lodash'; //ES6 import to check our babel loader
 

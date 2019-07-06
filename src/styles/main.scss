@@ -1,6 +1,7 @@
-
-body {
-  font-size: 10px;
-}
-
-@import 'teste';
+// @import "libs/animate/animate";
+// @import "tools/mixins";
+// @import "tools/functions";
+@import "generic/generic";
+@import "base/base";
+@import "components/rsvForm";
+@import "pages/pages";

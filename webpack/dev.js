@@ -19,11 +19,20 @@ const config = {
     ...baseConfig.plugins,
     new webpack.HotModuleReplacementPlugin(),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+      }
+    ]
+  },
 
   devtool: '#inline-source-map',
 
   devServer: {
     //quiet: true,
+    https: true,
     hot: true,
     port: '8081',
     inline: true,

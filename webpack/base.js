@@ -1,56 +1,47 @@
 import webpack from 'webpack';
 import path from 'path';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const config = {
-  entry: [path.join(__dirname, '../', 'src', 'app')],
+  entry: [
+    path.join(__dirname, '../', 'src', 'js', 'app'),
+  ],
+
   output: {
     path: path.join(__dirname, '../', 'dist'),
     filename: 'bundle.js',
-    publicPath: './',
+    // publicPath: './',
   },
+
   resolve: {
     extensions: ['.js', '.scss', '.sass', '.css'],
   },
-  module: {
-    loaders: [
-      {
-        test: /\.(sass|scss)$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-                importLoaders: 1,
-                minimize: process.env.NODE_ENV === 'production',
-              },
-            },
-            { loader: 'postcss-loader', options: { sourceMap: true } },
-            { loader: 'sass-loader', options: { sourceMap: true } },
-          ],
-        }),
-      },
-      { test: /\.css$/, loader: "style-loader!css-loader" },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: [/node_modules/, /src\/styles$/],
-        query: {
-          presets: ['env'],
-        },
-      },
-    ],
-  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
-      inject: true,
+      template: "./src/index.html",
+      filename: "index.html",
     }),
-    new ExtractTextPlugin('bundle.css'),
   ],
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.js$/, // include .js files
+  //       exclude: [/node_modules/, /src\/styles$/],
+  //       use: [{
+  //         loader: 'babel-loader',
+  //         query: {
+  //           plugins: [
+  //             // Sem o AMD para usar widgets padrão OCC
+  //             ['@babel/plugin-transform-modules-amd'],
+  //             // ['@babel/plugin-transform-modules-commonjs', {loose: true, noInterop: true}],
+  //             // ['@babel/plugin-proposal-class-properties']
+  //           ],
+  //           presets: ['@babel/preset-env']
+  //         }
+  //       }]
+  //     }
+  //   ]
+  // }
 };
 
 export default { ...config };
